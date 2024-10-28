@@ -43,6 +43,7 @@ def convert_grey(img):
     # img_grey = img # Need to be changed
 
     # TODO: Add your code here
+    pdb.set_trace()
     img_grey = img.convert('L')
     # image_array = np.array(img_grey)
     # unique_intensity_levels = np.unique(image_array)
@@ -83,6 +84,7 @@ def gradient_filter(img):
     # img_dx = np.array([2, 1, 3, 1, 1, 1])    # Need to be changed
     # TODO: Add your code here
     img = np.array(img)
+    
     # img_dx = cv2.Sobel(img, ddepth=cv2.CV_32F, dx=1, dy=0, ksize=3) ## use filter [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
     img_dx = np.zeros_like(img)
     img_dx[:, :-1] = img[:, 1:] - img[:, :-1]
@@ -231,6 +233,9 @@ def main():
     '''
     # read img to img list
     # Notice: img_list is a list of image
+    test_subj = convert_grey(Image.open('image_set/imposed_sce_small.bmp'))
+    gradient_filter(test_subj)
+    pdb.set_trace()
     img_list = [read_img_list(set) for set in set_repo]
     # set_repo refers to the three sets we'll handle
     for idx1,set in enumerate(set_repo):
@@ -257,7 +262,8 @@ def main():
         img_dx = np.concatenate(img_dx_list)
         img_dx_2 = np.concatenate(img_dx_2_list)
         img_dx_4 = np.concatenate(img_dx_4_list)
-
+        
+        
 
         # plot histogram and log histogram
         print('--'*20)
