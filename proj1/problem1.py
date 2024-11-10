@@ -43,7 +43,6 @@ def convert_grey(img):
     # img_grey = img # Need to be changed
 
     # TODO: Add your code here
-    pdb.set_trace()
     img_grey = img.convert('L')
     # image_array = np.array(img_grey)
     # unique_intensity_levels = np.unique(image_array)
@@ -233,9 +232,6 @@ def main():
     '''
     # read img to img list
     # Notice: img_list is a list of image
-    test_subj = convert_grey(Image.open('image_set/imposed_sce_small.bmp'))
-    gradient_filter(test_subj)
-    pdb.set_trace()
     img_list = [read_img_list(set) for set in set_repo]
     # set_repo refers to the three sets we'll handle
     for idx1,set in enumerate(set_repo):
@@ -262,8 +258,6 @@ def main():
         img_dx = np.concatenate(img_dx_list)
         img_dx_2 = np.concatenate(img_dx_2_list)
         img_dx_4 = np.concatenate(img_dx_4_list)
-        
-        
 
         # plot histogram and log histogram
         print('--'*20)
